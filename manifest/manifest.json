@@ -15,8 +15,8 @@
       "outline": "icon32.png"
   },
   "name": {
-    "short": "Cookie Monster App",
-    "full": "A Teams platform app develoed using Vanilla JS and HTML to demonstrate Cookies and Local Storage"
+    "short": "RightShift Attendance App",
+    "full": "A Teams platform app developed using Vanilla JS and HTML to demonstrate Cookies and Local Storage"
   },
   "description": {
     "short": "Sample platform app using vanilla JS and HTML",

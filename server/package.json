@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "db-download": "node db/dbDownload.js"
+    "db-download": "node db/dbDownload.js",
+    "package": "node ../manifest/makePackage.js"
   },
   "keywords": [],
   "author": "",

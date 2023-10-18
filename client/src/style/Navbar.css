@@ -1,0 +1,57 @@
+nav {
+  display: flex;
+  align-items: center;
+  background-color: #4d07ff;
+  padding: 8px;
+  color: #fff;
+  height: 32px;
+}
+
+nav img {
+  height: 80%;
+  aspect-ratio: 1;
+  margin-right: 20px;
+}
+
+nav div.title {
+  text-align: left;
+  font-size: 18px;
+  color: #ddff00;
+}
+nav div.right-button  {
+    text-align: right;
+    font-size: 18px;
+    color: #ddff00;
+    margin-left: auto;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  /* background-color: rgb(255 191 0); */
+  padding: 8px 8px;
+  text-align: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  width: 80px;
+}
+
+
+.user-card {
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+
+.user-card  .user-avatar {
+  height: 32px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.user-card .user-name {
+  font-size: 14px;
+  color: #ffffff;
+}

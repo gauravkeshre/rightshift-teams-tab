@@ -1,0 +1,49 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.12/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.12",
+  "version": "1.3.0",
+  "id": "549649dd-1dc4-4c72-9eeb-6bed87819b14",
+  "packageName": "com.gauravkeshre.sample.cookiemonster",
+  "developer": {
+    "name": "Gaurav Keshre",
+    "websiteUrl": "https://61c4-2404-f801-8028-3-ddf8-879f-285f-1eb3.ngrok-free.app/",
+    "privacyUrl": "https://61c4-2404-f801-8028-3-ddf8-879f-285f-1eb3.ngrok-free.app/privacy.html",
+    "termsOfUseUrl": "https://61c4-2404-f801-8028-3-ddf8-879f-285f-1eb3.ngrok-free.app/termsofuse.html"
+  },
+  "icons": {
+      "color": "icon192.png",
+      "outline": "icon32.png"
+  },
+  "name": {
+    "short": "Cookie Monster App",
+    "full": "A Teams platform app develoed using Vanilla JS and HTML to demonstrate Cookies and Local Storage"
+  },
+  "description": {
+    "short": "Sample platform app using vanilla JS and HTML",
+    "full": "Sample platform app using vanilla JS and HTML"
+  },
+  "accentColor": "#FFFFFF",
+  "staticTabs": [
+    {
+      "entityId": "Index",
+      "name": "Index",
+      "contentUrl": "https://61c4-2404-f801-8028-3-ddf8-879f-285f-1eb3.ngrok-free.app",
+      "websiteUrl": "https://61c4-2404-f801-8028-3-ddf8-879f-285f-1eb3.ngrok-free.app",
+      "scopes": [
+        "personal"
+      ]
+    }
+  ],
+  "showLoadingIndicator": false,
+  "permissions": [
+      "identity",
+      "messageTeamMembers"
+  ],
+  "validDomains": [
+      "61c4-2404-f801-8028-3-ddf8-879f-285f-1eb3.ngrok-free.app"
+  ],
+  "webApplicationInfo": {
+      "id": "00000000-0000-0000-0000-000000000000",
+      "resource": "api://61c4-2404-f801-8028-3-ddf8-879f-285f-1eb3.ngrok-free.app/00000000-0000-0000-0000-000000000000"
+  }
+}

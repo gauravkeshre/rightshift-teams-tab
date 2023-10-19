@@ -28,7 +28,6 @@ nav div.right-button  {
 button {
   display: flex;
   align-items: center;
-  /* background-color: rgb(255 191 0); */
   padding: 8px 8px;
   text-align: center;
   justify-content: center;

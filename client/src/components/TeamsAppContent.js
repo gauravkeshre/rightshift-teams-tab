@@ -1,5 +1,7 @@
 import React from 'react';
 import * as msteams from '@microsoft/teams-js';
+import {TeamsRequireSignIn} from './TeamsRequireSignIn';
+import {TeamsUserHome} from './TeamsUserHome';
 
 class TeamsAppContent extends React.Component {
 
@@ -7,7 +9,8 @@ class TeamsAppContent extends React.Component {
         super(props);
         msteams.app.initialize();
         this.state = {
-            context: {}
+            context: {},
+            token:null
         };
     }
     
@@ -17,13 +20,36 @@ class TeamsAppContent extends React.Component {
     }
 
     render() {
+        const isUserLoggedIn = this.state.token !== null ;
+        let component;
+        if (!isUserLoggedIn) {
+            component = this.getSingedInComponent();
+        }else {
+            component = this.getMainContent();
+        }
         return (
-            <div className='app-content-web'>
-                <h1>The page is inside Teams ✅ {this.state.count}</h1>
-                <button id='getContext' onClick={this.getContext.bind(this)}>getContext</button>
-                <code>{this.state.context ? JSON.stringify(this.state.context) : "Context not found."}</code>
-
+            <div>
+                {component}
             </div>
+        )
+    }
+
+    async handleLoginButtonClick(event) {
+        let token  = await msteams.authentication.getAuthToken();
+        console.log(JSON.stringify(token));
+        this.setState({ token: JSON.stringify(token) });
+
+    }
+
+    getSingedInComponent() {
+        return(
+        <TeamsRequireSignIn onLoginButtonClick={this.handleLoginButtonClick.bind(this)}></TeamsRequireSignIn>
+        );
+    }
+
+    getMainContent() {
+        return (
+            <TeamsUserHome token={this.state.token}> </TeamsUserHome>
         );
     }
 }

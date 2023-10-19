@@ -18,7 +18,6 @@ class Main extends React.Component {
         
         return (
             <div>
-            <Navbar onUserCardClick= {this.handleUserCardClick}></Navbar>
             {component}
             </div>
             )
@@ -29,11 +28,12 @@ class Main extends React.Component {
                 <TeamsAppContent> </TeamsAppContent>
                 );
             }
-            
-            
             getWebComponent() {
                 return (
-                    <WebAppContent></WebAppContent>
+                    <div>
+                        <Navbar></Navbar>
+                        <WebAppContent></WebAppContent>
+                    </div>
                     );
                 }
                 
@@ -50,7 +50,6 @@ class Main extends React.Component {
                             }
                         });
                     }
-                    
                 }
                 
                 inTeams() {

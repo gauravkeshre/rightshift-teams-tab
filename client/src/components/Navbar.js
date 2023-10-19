@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../style/logo.png'
-import UserButton from './UserButton';
+import TeamsUserCard from './TeamsUserCard';
 
 class Navbar extends React.Component {
     render() {
@@ -15,7 +15,7 @@ class Navbar extends React.Component {
                 <img src={logo} alt="logo"></img>
                 <div className='title'>Right Shift</div>
                 <div className='right-button'>
-                    <UserButton loggedInUser={null} onUserCardClick={this.buttonDidClick.bind(this)}></UserButton>
+                    <TeamsUserCard loggedInUser={null} onUserCardClick={this.buttonDidClick.bind(this)}></TeamsUserCard>
                 </div>
             </nav>
         );

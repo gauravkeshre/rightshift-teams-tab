@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class UserButton extends React.Component {
+class TeamsUserCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -31,3 +31,5 @@ export default class UserButton extends React.Component {
         }
    }
 }
+
+export default TeamsUserCard;

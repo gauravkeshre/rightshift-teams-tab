@@ -27,9 +27,11 @@
 }
 
 .app-content-web {
-  display: flex;
+  display: block;
   flex-direction: column;
   border-radius: 2px;
   margin: 10px;
   border : 1px solid #282c34;
+  overflow: hidden;
 }
+

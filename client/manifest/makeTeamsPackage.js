@@ -1,4 +1,4 @@
-var dotenv = require ('dotenv').config({path: __dirname + '/../.env'});
+var dotenv = require ('dotenv').config({path: '../.env'});
 var fs = require('fs');
 var AdmZip = require("adm-zip");
 var zip = new AdmZip();
@@ -19,14 +19,14 @@ fs.readFile(dir, 'utf8', function (err, data) {
         }
     });
     
-    fs.writeFile('teams-package/manifest.json', data, 'utf-8', (err, data) => {
+    fs.writeFile('manifest/manifest.json', data, 'utf-8', (err, data) => {
         if (err) throw err;
 
-        zip.addLocalFile(`teams-package/manifest.json`);
-        zip.addLocalFile(`teams-package/icon32.png`);
-        zip.addLocalFile(`teams-package/icon240.png`);
+        zip.addLocalFile(`manifest/manifest.json`);
+        zip.addLocalFile(`manifest/icon32.png`);
+        zip.addLocalFile(`manifest/icon240.png`);
 
-        zip.writeZip(`teams-package/rightshift-teamsapp.zip`);
-        console.log(`Created app package teams-package//rightshift-teamsappp.zip`);
+        zip.writeZip(`manifest/rightshift-teamsapp.zip`);
+        console.log(`Created app package manifest/rightshift-teamsappp.zip`);
     });
 });

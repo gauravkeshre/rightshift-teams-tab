@@ -1,29 +1,35 @@
 import React from 'react';
 import logo from '../style/logo.png'
-import UserButton from './UserButton';
+import TeamsUserCard from './TeamsUserCard';
 
 class Navbar extends React.Component {
     render() {
-        const user = {
-            name: 'John Doe',
-            email: 'johndoe@example.com',
-            avatar: logo
-        };
-
         return (
             <nav>
-                <img src={logo} alt="logo"></img>
-                <div className='title'>Right Shift</div>
-                <div className='right-button'>
-                    <UserButton loggedInUser={null} onUserCardClick={this.buttonDidClick.bind(this)}></UserButton>
-                </div>
+            <img src={logo} alt="logo"></img>
+            <div className='title'>Right Shift</div>
+            {this.getLoginButton()}
             </nav>
-        );
+            );
+        }
+        
+        getLoginButton() {
+            if (this.props.onUserCardClick != null) {
+                return (
+                    <div className='right-button'>
+                    <TeamsUserCard loggedInUser={null} onUserCardClick={this.buttonDidClick}></TeamsUserCard>
+                    </div>
+                    );
+            }else {
+                return (
+                    <div/>
+                    );
+                }
+            }
+                
+        buttonDidClick = event => {
+            this.props.onUserCardClick(event);
+        };
     }
-
-    buttonDidClick = event => {
-        this.props.onUserCardClick(event);
-    };
-}
-
+            
 export default Navbar;

@@ -1,48 +1,43 @@
-.app-content-web {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 2px;
-  margin: 10px;
-  border : 1px solid #282c34;
-  overflow: hidden;
-}
+/* CARD CSS  */
 
-.login-box {
-  display: flex; 
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-  padding: 10px;
-  text-align: center;
-  background-color: rgb(214, 226, 239);
-  color: rgb(47, 4, 87);
+.card  {
+  display: flex;
+  border-radius: 5px;
+  background-color: var(--card-bg-color);
+  border-width: 1px;
+  border: var(--accent-color);
+  margin: 6px;
+  padding: 3px;
   
 }
+/* BAND */
 
-.login-box button {
+.taskbar {
+  display: flex;
+  justify-content: center; 
+  width: 98%;
+  height: 70px;
+  background-color: var(--card-bg-color);
+  flex-direction: row;
+}
+
+.taskbar button {
+  background-color: var(--card-action-color);
+}
+
+
+/* TIME TRACKER */
+
+.time-tracker {
   display: block;
-  margin: 0 auto;
-  width: 50%;
-  height: 40px;
-  border-radius: 3px;
-  border-width: 1px;
-  color:  rgb(47, 4, 87);
-  font-weight: bold;
-  background-color: rgb(255, 255, 255);
-  border-color: dimgray;
+  width: 70px;
+  height: 50px;
+  margin: 6px;
+  line-height: 0;
+  color: var(--card-content-color);
+  background-color: var(--card-in-color);
 }
 
-.login-box h1 {
+.time-tracker p {
   font-weight: lighter;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.login-box h2 {
-  font-weight: lighter;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.5rem;
-
 }

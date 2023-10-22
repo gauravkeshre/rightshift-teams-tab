@@ -1,9 +1,9 @@
 nav {
   display: flex;
   align-items: center;
-  background-color: #4d07ff;
+  color: var(--primary-color);
+  background-color: var(--primary-dark-color);
   padding: 8px;
-  color: #fff;
   height: 32px;
 }
 
@@ -16,8 +16,9 @@ nav img {
 nav div.title {
   text-align: left;
   font-size: 18px;
-  color: #ddff00;
+  color: var(--primary-color);
 }
+
 nav div.right-button  {
     text-align: right;
     font-size: 18px;

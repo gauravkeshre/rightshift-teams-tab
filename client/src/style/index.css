@@ -1,18 +1,20 @@
 :root {
-  --main-bg-color: #e5e6e9;
+  --main-background-color:#FAFAFA;
   --primary-dark-color: #333;
-  --primary-light-color: #ddff00;
+  --primary-light-color: #a6ff00;
+  
+  --action-destructive-label-color: #fff;
+  --action-destructive-color: #f75d4f;
 
+  --action-contstructive-label-color: #fff;
+  --action-contstructive-color: #3d97f7;
 
-  --nav-text-color: #fff;
+  --action-green-label-color: #333;
+  --action-green-color: #a6ff00;
 
-  --card-title-color: #ff6464;
+  --action-secondary-color: #E7EEF6;
 
-  --card-bg-color: #e3f1fffe;
-  --card-in-color:#fff;
-  --card-content-color: #35385f;
-  --card-action-color: #cedaee;
-  --accent-color: #ddff00;
+  --panel-color: #57BEDC;
 }
 
 body {
@@ -22,7 +24,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--main-bg-color);
+  background-color: var(--main-background-color);
 }
 
 code {

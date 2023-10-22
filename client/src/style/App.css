@@ -1,43 +1,166 @@
 /* CARD CSS  */
 
-.card  {
+.card {
   display: flex;
   border-radius: 5px;
-  background-color: var(--card-bg-color);
   border-width: 1px;
   border: var(--accent-color);
-  margin: 6px;
-  padding: 3px;
-  
+  background-color: var(--main-background-color);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
+
 /* BAND */
 
 .taskbar {
   display: flex;
-  justify-content: center; 
-  width: 98%;
-  height: 70px;
-  background-color: var(--card-bg-color);
+  justify-content: center;
+  background-color: var(--panel-color);
   flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  height: 90px;
+  align-items: stretch;
 }
 
-.taskbar button {
-  background-color: var(--card-action-color);
+.taskbar > * {
+  margin: 16px;
+  color: var(--card-content-color);
+  line-height: 0;
 }
 
+.taskbar h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+}
+
+.taskbar Button{
+  display: block;
+  font-size: medium;
+  font-weight: bold;
+  font-weight: 400;
+  aspect-ratio: 1;
+  background-color: var( --action-destructive-color);
+  color: var(--action-destructive-label-color);
+  margin: 10px;
+}
+
+.taskbar Button.paused {
+  color: var( --action-green-label-color);
+  background-color: var(--action-green-color);
+}
+
+.taskbar Button.active {
+  color: var(--action-contstructive-label-color);
+  background-color: var(--action-contstructive-color);
+}
 
 /* TIME TRACKER */
 
 .time-tracker {
-  display: block;
-  width: 70px;
-  height: 50px;
-  margin: 6px;
-  line-height: 0;
-  color: var(--card-content-color);
-  background-color: var(--card-in-color);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: space-evenly;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  font-weight: 400;
+  padding: 6px 6px 6px 10px;
+  margin: 10px;
+  width: 120px;
 }
 
-.time-tracker p {
-  font-weight: lighter;
+.time-tracker  .time {
+  font-weight: 600;
+  font-size: x-large;
+}
+
+
+/* LOGIN SSO CARD */
+.login-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  padding: 10px;
+  text-align: center;
+  background-color: var(--action-secondary-color);
+}
+
+.login-box Button {
+  width: 120px;
+  height: 44px;
+  border-radius: 6px;
+  border-color: var(--card-title-color);
+  border-width: 1px;
+  color: var(--action-contstructive-label-color);
+  background-color: var(--action-contstructive-color);
+}
+
+
+/* Date Panel */
+
+.datepanel {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: space-evenly;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  font-size: medium;
+  font-weight: bold;
+  font-weight: 400;
+  padding: 6px 6px 6px 10px;
+  margin: 10px;
+  width: 160px;
+  background-color: car(--accent-color);
+}
+
+.datepanel .day {
+  font-weight: bold;
+}
+
+.datepanel .date {
+  font-weight: bold;
+}
+
+.datepanel .time {
+  font-size: xx-large;
+}
+
+/* PunchInPanel */
+
+.punchinpanel {
+  height: 120px;
+  display: flex;
+  align-items: stretch;
+  border-radius: 0px;
+}
+
+#btn-punch-in {
+  color: var(--action-green-label-color);
+  background-color: var(--action-green-color);
+}
+
+#btn-punch-out {
+  color: var(--action-destructive-label-color);
+  background-color: var(--action-destructive-color);
+}
+
+.paused-tracker {
+  background-color: #ffa28538;
+}
+
+.active-tracker {
+  background-color: #baff8538;
 }

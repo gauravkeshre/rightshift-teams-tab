@@ -26,13 +26,19 @@ class DatePanel extends React.Component {
     }
 
     render() {
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const options = { weekday: 'long'};
         const formattedDate = this.state.date.toLocaleDateString(undefined, options);
+
+        const options2 = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate2 = this.state.date.toLocaleDateString(undefined, options2);
+        
+
         const formattedTime = this.state.date.toLocaleTimeString();
         return (
-            <div className='date-panel'>
-                <h3>{formattedDate}</h3>
-                <h1>{formattedTime}</h1>
+            <div className='card datepanel'>
+                <div className="day">{formattedDate}</div>
+                <div className="date">{formattedDate2}</div>
+                <div className="time">{formattedTime}</div>
             </div>
         );
     }

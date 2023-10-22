@@ -1,5 +1,6 @@
 import React from 'react';
-
+import Button from '../common/Button';
+import {BsMicrosoft} from 'react-icons/bs';
 class TeamsRequireSignIn extends React.Component {
    
     constructor(props) {
@@ -16,9 +17,10 @@ class TeamsRequireSignIn extends React.Component {
     render() {
         return (
             <div className='login-box'>
-                <h1>Sign In</h1>
+                <h2>Sign In</h2>
                 <h3>You need to sign in to use this app</h3>
-                <button id="login" onClick={this.buttonDidClick.bind(this)}>SSO</button>
+                <br/><br/><br/>
+                <Button id="login" text={"SSO"} icon={BsMicrosoft} onClick={this.buttonDidClick.bind(this)}></Button>
             </div>
         );
     }

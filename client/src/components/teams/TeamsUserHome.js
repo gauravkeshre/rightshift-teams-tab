@@ -1,54 +1,61 @@
 import React, { Component } from 'react';
-import TaskBarPanel from '../common/TaskBarPanel';
+import AttendanceBarPanel from '../common/AttendanceBarPanel';
+import PunchInPanel from '../common/PunchInPanel';
 
 class TeamsUserHome extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             error: null,
-            username:"NONE",
+            username: "NONE",
             user: {
                 name: 'John Doe',
                 email: 'johndoe@example.com',
                 age: 30
-            }
+            },
+            punchInDate: null,
+            lastActivtyDate: null,
         };
-
-        this.loadData = this.loadData.bind(this);
-        // this.loadData();
     }
-
-
-async loadData() {
-    const server = "http://localhost:3978";
-    let endpoint = server + "/test"
-    let response = await fetch(endpoint, {mode: 'no-cors'});
-    // resolve response
-    if (response.ok) {
-        console.log(JSON.parse(response.data()));
-        this.setState({username:JSON.stringify(response.data())});
-    }else 
-    {
-        console.log("Error in fetching data");
-        this.setState({username:"ERROR"});
-    }
-}
     render() {
-        let date = new Date('October 22, 2023 11:00:00');
+        return (
+                (this.state.punchInDate == null) ? this.getInitalView() : this.getPunchedInView()
+        );
+    }
+
+    // UI Utils
+    getPunchedInView() {
         return (
             <div>
-                <h1>You are logged in</h1>
-                <TaskBarPanel punchInDate={date} lastActivtyDate={date} onActionButtonClick={this.handleTaskBarAction} >  </TaskBarPanel>
-                <code>{this.props.token ? JSON.stringify(this.props.token) : "You should not see this page if you are not logged in."}</code>
-                <p>result: {this.state.username}</p>
-                <p>error: {this.state.error}</p>
+                <AttendanceBarPanel punchInDate={this.state.punchInDate} lastActivtyDate={this.state.lastActivtyDate} onBreak={this.handleTaskBarAction.bind(this)} onPunch={this.handlePunchIn.bind(this)}>  </AttendanceBarPanel>
             </div>
         );
     }
 
-    handleTaskBarAction(event) {
-        console.log(event);
+    getInitalView() {
+        return (
+            <div>
+                <PunchInPanel onClick={this.handlePunchIn.bind(this)}/>
+            </div>
+
+        );
+    }
+
+    // Button Actions
+    handlePunchIn(event) {
+        console.log(event.target.id);
+        if (event.target.id === "btn-punch-out") {
+            this.setState({punchInDate: null, lastActivtyDate: null});
+        }else {
+            let date = new Date();
+            this.setState({punchInDate: date, lastActivtyDate: date});
+        }
+    }
+
+    handleTaskBarAction(isBreakOn) {
+        this.setState({lastActivtyDate: new Date(), punchInDate: this.state.punchInDate});
     }
 }
 
-export {TeamsUserHome};
+export { TeamsUserHome };

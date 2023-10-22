@@ -28,8 +28,8 @@ class TimeTrackerPanel extends Component {
 
         return (
             <div className='card time-tracker'>
-                <p>{this.props.title}</p>
-                <h4>{`${hours}:${minutes}:${seconds}`}</h4>
+                <div className='title'>{this.props.title}</div>
+                <div className='time'>{`${hours} : ${minutes} : ${seconds}`}</div>
             </div>
         );
     }

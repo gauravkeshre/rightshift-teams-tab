@@ -1,7 +1,6 @@
 nav {
   display: flex;
   align-items: center;
-  color: var(--primary-color);
   background-color: var(--primary-dark-color);
   padding: 8px;
   height: 32px;
@@ -16,42 +15,5 @@ nav img {
 nav div.title {
   text-align: left;
   font-size: 18px;
-  color: var(--primary-color);
-}
-
-nav div.right-button  {
-    text-align: right;
-    font-size: 18px;
-    color: #ddff00;
-    margin-left: auto;
-}
-
-button {
-  display: flex;
-  align-items: center;
-  padding: 8px 8px;
-  text-align: center;
-  justify-content: center;
-  font-size: 18px;
-  cursor: pointer;
-  width: 80px;
-}
-
-
-.user-card {
-  height: 100%;
-  display: inline-flex;
-  align-items: center;
-}
-
-.user-card  .user-avatar {
-  height: 32px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  margin-right: 8px;
-}
-
-.user-card .user-name {
-  font-size: 14px;
-  color: #ffffff;
+  color: var(--primary-light-color);
 }

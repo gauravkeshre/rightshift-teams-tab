@@ -13,6 +13,7 @@ class Button extends React.Component {
                         {React.createElement(icon)}
                     </IconContext.Provider>
                 )}
+                &nbsp;
                 {text}
             </button>
         );
@@ -21,7 +22,7 @@ class Button extends React.Component {
 
 Button.propTypes = {
     icon: PropTypes.elementType,
-    text: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
 };
 
 export default Button;

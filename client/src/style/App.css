@@ -56,6 +56,20 @@
   background-color: var(--action-contstructive-color);
 }
 
+.taskbar .round-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--primary-dark-color);
+  color: var(  --primary-light-color);
+  font-size: xx-large;
+  font-weight: bold;
+  margin: 10px;
+}
+.tasks {
+  background-color: bisque;
+}
 /* TIME TRACKER */
 
 .time-tracker {
@@ -164,3 +178,106 @@
 .active-tracker {
   background-color: #baff8538;
 }
+
+.empty-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: var(  --empty-view-bg-color);
+  color: var( --empty-view-color);
+}
+
+.empty-view .react-icons {
+  font-size: 100px;
+  
+}
+
+/* Work Orders */
+
+.work-orders {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  padding: 10px;
+  text-align: center;
+  background-color: var(--action-secondary-color);
+}
+
+.work-order-cell {
+  border-radius: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.04);
+}
+
+/* WORK ORDER CELL */
+
+.work-order-cell__details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.work-order-cell__title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.work-order-cell__subtitle {
+  font-size: 14px;
+  color: #666;
+}
+
+.work-order-cell__actions {
+  display: flex;
+  gap: 20px;
+}
+
+.work-order-cell__actions Button{
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 10px 10px 10px 15px;
+  aspect-ratio: 1;
+}
+
+Button.edit {
+  color: var(--action-contstructive-label-color);
+  background-color: var(--action-contstructive-color);
+}
+
+Button.delete {
+  color: var(--action-destructive-label-color);
+  background-color: var(--action-destructive-color);
+}
+/* 
+.work-order-cell__edit-button,
+.work-order-cell__delete-button {
+  background-color: #0078d4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.work-order-cell__edit-button:hover,
+.work-order-cell__delete-button:hover {
+  background-color: #005a9e;
+}
+
+.work-order-cell__delete-button {
+color: var(--action-destructive-label-color);
+  background-color: var(--action-destructive-color);
+} */

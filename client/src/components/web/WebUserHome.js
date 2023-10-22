@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AttendanceBarPanel from '../common/AttendanceBarPanel';
 import PunchInPanel from '../common/PunchInPanel';
+import WorkOrderList from '../common/WorkOrderList';
 import TaskBar from   '../common/TaskBar';
 
 class WebUserHome extends Component {
@@ -24,8 +25,9 @@ class WebUserHome extends Component {
         let date = new Date('October 22, 2023 11:00:00');
         return (
             <div>
+                <AttendanceBarPanel punchInDate={date} lastActivtyDate={this.state.lastActivtyDate} onBreak={this.handleTaskBarAction.bind(this)} onPunch={this.handlePunchIn.bind(this)} >  </AttendanceBarPanel>
                 <TaskBar />
-              <AttendanceBarPanel punchInDate={date} lastActivtyDate={this.state.lastActivtyDate} onBreak={this.handleTaskBarAction.bind(this)} onPunch={this.handlePunchIn.bind(this)} >  </AttendanceBarPanel>
+                <WorkOrderList onAddClick={this.handleAdd.bind(this)}/>
             </div>
         );
     }
@@ -51,6 +53,10 @@ class WebUserHome extends Component {
     }
     handleTaskBarAction(isBreakOn) {
         this.setState({lastActivtyDate: new Date()});
+    }
+
+    handleAdd(event ) {
+        
     }
 
 }

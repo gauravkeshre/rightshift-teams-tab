@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import AttendanceBarPanel from '../common/AttendanceBarPanel';
 import PunchInPanel from '../common/PunchInPanel';
+import WorkOrderList from '../common/WorkOrderList';
+import TaskBar from '../common/TaskBar';
 
 class TeamsUserHome extends Component {
 
@@ -29,6 +31,8 @@ class TeamsUserHome extends Component {
         return (
             <div>
                 <AttendanceBarPanel punchInDate={this.state.punchInDate} lastActivtyDate={this.state.lastActivtyDate} onBreak={this.handleTaskBarAction.bind(this)} onPunch={this.handlePunchIn.bind(this)}>  </AttendanceBarPanel>
+                <TaskBar />
+                <WorkOrderList/>
             </div>
         );
     }

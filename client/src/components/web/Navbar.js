@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from '../style/logo.png'
-import TeamsUserCard from './TeamsUserCard';
+import logo from '../../resources/logo.png'
+import TeamsUserCard from '../teams/TeamsUserCard';
 
 class Navbar extends React.Component {
     render() {
@@ -17,7 +17,7 @@ class Navbar extends React.Component {
             if (this.props.onUserCardClick != null) {
                 return (
                     <div className='right-button'>
-                    <TeamsUserCard loggedInUser={null} onUserCardClick={this.buttonDidClick}></TeamsUserCard>
+                    <TeamsUserCard loggedInUser={this.props.loggedInUser} onUserCardClick={this.buttonDidClick}></TeamsUserCard>
                     </div>
                     );
             }else {

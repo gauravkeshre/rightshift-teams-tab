@@ -1,64 +1,67 @@
 import React from 'react';
-import Navbar from './Navbar';
-import {WebAppContent} from './WebAppContent';
-import {TeamsAppContent} from './TeamsAppContent';
-
-import * as msteams from '@microsoft/teams-js';
+import Navbar from './web/Navbar';
+import { WebAppContent } from './web/WebAppContent';
+import { TeamsAppContent } from './teams/TeamsAppContent';
 
 class Main extends React.Component {
-    render() { 
-      
+    constructor(props) {
+        super(props);
+        this.handleWebLogin = this.handleWebLogin.bind(this);
+        
+        this.state = {
+            user: {
+                name: null,
+                email: null
+            }
+        }
+    }
+
+    render() {
         const isInsideTeams = this.inTeams();
         let component;
+
         if (isInsideTeams) {
             component = this.getTeamsComponent();
         } else {
             component = this.getWebComponent();
         }
-        
+
+        return (
+            <body  className="main-body">
+                {component}
+            </body>
+        )
+    }
+
+    getTeamsComponent() {
+        return (
+            <TeamsAppContent> </TeamsAppContent>
+        );
+    }
+    getWebComponent() {
         return (
             <div>
-            {component}
+                <Navbar></Navbar>
+                <WebAppContent loggedInUser={this.state.user}></WebAppContent>
             </div>
-            )
+        );
+    }
+
+    handleWebLogin(event) {
+        if (event.target.id === 'logout') {
+            this.setState({ user: null });
+        } else {
+            this.setState({ user: { name: 'John Doe', email: 'johndoe@react.com' }});
         }
-        
-        getTeamsComponent() {
-            return (
-                <TeamsAppContent> </TeamsAppContent>
-                );
-            }
-            getWebComponent() {
-                return (
-                    <div>
-                        <Navbar></Navbar>
-                        <WebAppContent></WebAppContent>
-                    </div>
-                    );
-                }
-                
-                handleUserCardClick (event) {
-                    if (event.target.id === 'logout') {
-                        
-                    } else {
-                        msteams.authentication.getAuthToken({
-                            successCallback: (token) => {
-                                console.log(token);
-                            },
-                            failureCallback: (error) => {
-                                console.log(error);
-                            }
-                        });
-                    }
-                }
-                
-                inTeams() {
-                    try {
-                        return window.self !== window.top;
-                    } catch (e) {
-                        return true;
-                    }
-                }
-            }
-            
+    }
+
+    inTeams() {
+        try {
+            return window.self !== window.top;
+        } catch (e) {
+            return true;
+        }
+    }
+}
+
 export default Main;

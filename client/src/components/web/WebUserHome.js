@@ -26,7 +26,7 @@ class WebUserHome extends Component {
         return (
             <div>
                 <AttendanceBarPanel punchInDate={date} lastActivtyDate={this.state.lastActivtyDate} onBreak={this.handleTaskBarAction.bind(this)} onPunch={this.handlePunchIn.bind(this)} >  </AttendanceBarPanel>
-                <TaskBar />
+                <TaskBar  onClick={this.handleAdd.bind(this)} />
                 <WorkOrderList onAddClick={this.handleAdd.bind(this)}/>
             </div>
         );
@@ -56,7 +56,7 @@ class WebUserHome extends Component {
     }
 
     handleAdd(event ) {
-        
+        alert("Add Work Order");
     }
 
 }

@@ -31,8 +31,8 @@ class TeamsUserHome extends Component {
         return (
             <div>
                 <AttendanceBarPanel punchInDate={this.state.punchInDate} lastActivtyDate={this.state.lastActivtyDate} onBreak={this.handleTaskBarAction.bind(this)} onPunch={this.handlePunchIn.bind(this)}>  </AttendanceBarPanel>
-                <TaskBar />
-                <WorkOrderList/>
+                <TaskBar onClick={this.handleAdd.bind(this)}/>
+                <WorkOrderList onAddClick={this.handleAdd.bind(this)}/>
             </div>
         );
     }
@@ -59,6 +59,10 @@ class TeamsUserHome extends Component {
 
     handleTaskBarAction(isBreakOn) {
         this.setState({lastActivtyDate: new Date(), punchInDate: this.state.punchInDate});
+    }
+
+    handleAdd(event ) {
+alert("Add");
     }
 }
 

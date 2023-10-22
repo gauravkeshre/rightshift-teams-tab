@@ -8,7 +8,7 @@ class PunchInPanel extends Component {
         return (
             <div className='card taskbar punchinpanel'>
                 <DateTimePanel showTime={true}  showAsCard={true} />
-                <Button className="card" id="btn-punch-in" icon={BiSolidLogInCircle} onClick={this.handleButtonClick.bind(this)}></Button>
+                <Button className="card taskbar" id="btn-punch-in" text="Punch In" icon={BiSolidLogInCircle} onClick={this.handleButtonClick.bind(this)}></Button>
             </div>
         );
     }

@@ -77,7 +77,7 @@ class WorkOrderService {
     }
 }
 
-const workOrder = {
+const WorkOrder = {
     id: null,
     title: '',
     description: '',
@@ -145,4 +145,4 @@ const mockWorkOrders = [
         subtitle: 'The styling on the profile page needs to be updated to match the new design.',
     },
 ];
-export { WorkOrderService, workOrder, mockWorkOrders };
+export { WorkOrderService, WorkOrder, mockWorkOrders };

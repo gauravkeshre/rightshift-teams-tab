@@ -18,7 +18,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   align-content: center;
-  height: 90px;
+  height: 70px;
   align-items: stretch;
 }
 
@@ -56,20 +56,11 @@
   background-color: var(--action-contstructive-color);
 }
 
-.taskbar .round-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background-color: var(--primary-dark-color);
-  color: var(  --primary-light-color);
-  font-size: xx-large;
-  font-weight: bold;
-  margin: 10px;
+.taskbar .attendancepanel {
+  position: sticky;
+  top: 0;
 }
-.tasks {
-  background-color: bisque;
-}
+
 /* TIME TRACKER */
 
 .time-tracker {
@@ -82,11 +73,12 @@
   white-space: nowrap;
   overflow: visible;
   text-overflow: ellipsis;
-  line-height: 1.5;
+  line-height: 1;
   font-weight: 400;
   padding: 6px 6px 6px 10px;
   margin: 10px;
   width: 120px;
+  height: 40px;
 }
 
 .time-tracker  .time {
@@ -261,6 +253,30 @@ Button.delete {
   color: var(--action-destructive-label-color);
   background-color: var(--action-destructive-color);
 }
+
+.tasks {
+  background-color: bisque;
+  height: 70px;;
+}
+
+.tasks Button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  cursor: pointer;
+  
+  border: none;
+  border-radius: 20%;
+  aspect-ratio: 1;
+  
+  background-color: var(--primary-dark-color);
+  color: var(  --primary-light-color);
+  line-height: 1.5;
+  font-size: x-small;
+}
+
 /* 
 .work-order-cell__edit-button,
 .work-order-cell__delete-button {

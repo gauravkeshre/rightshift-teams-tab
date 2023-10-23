@@ -25,24 +25,26 @@ class IncidentsListPanel extends Component {
     };
 
     handleDelete = (id) => {
-        // this.incidentRepository.deleteRecord(id);
-        // this.loadData();
+        this.incidentRepository.deleteRecord(id);
+        this.loadData();
     };
 
     async loadData() {
-        let records = await this.incidentRepository.getRecords();
-        this.setState({incidents: records});
+        const records = await this.incidentRepository.getRecords();
+        this.setState({
+            incidents: records
+        });
     }
 
     render() {
-        const { incidents } = this.state.incidents;
+        const incidents = this.state.incidents;
         
         if (incidents == null || incidents.length === 0) {
             return (<EmptyView buttonText="Add +" onClick={this.props.onAddClick}/>);
         }
 
         const listItems = incidents.map((incident) => (
-            <IncidentCell incident={incident} key={incident.id} onEdit={this.handleEdit.bind(this)} onDelete={this.handleDelete.bind(this)}/>
+            <IncidentCell incident={incident} key={incident.id} onEdit={this.handleEdit.bind(this)} onDeleteRecord={this.handleDelete.bind(this)}/>
         ));
 
         return (

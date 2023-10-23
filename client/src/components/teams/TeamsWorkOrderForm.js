@@ -20,10 +20,9 @@ class TeamsWorkOrderForm extends Component {
                 description: '',
                 status: '',
                 attachments: '',
-                Priority: '',
+                priority: '',
             },
-            isTeams: false,
-            teamsContext: null
+            isTeams: false
         };
     }
 
@@ -34,9 +33,9 @@ class TeamsWorkOrderForm extends Component {
 
     async componentWillMount() {
         await this.checkIfTeams();
-        microsoftTeams.getContext((context, error) => {
-            this.setState({...this.state, teamsContext: context });
-        });
+        // microsoftTeams.getContext((context, error) => {
+        //     this.setState({...this.state, teamsContext: context });
+        // });
     }
 
     submitForm(event) {
@@ -64,21 +63,52 @@ class TeamsWorkOrderForm extends Component {
     }
 
     handleTitleChange(event) {
-        this.setState({ incident: {...this.state.incident, title: event.target.value}, ...this.state});
+        this.setState({
+            ...this.state,
+            incident: {
+                ...this.state.incident,
+                title: event.target.value
+            }
+        });
     }
+
     handleDescriptionChange(event) {
-        this.setState({ incident: {...this.state.incident, description: event.target.value}, ...this.state });
+        this.setState({
+            ...this.state,
+            incident: {
+                ...this.state.incident,
+                description: event.target.value
+            }
+        });
     }
     handleStatusChange(event) {
-        this.setState({ incident: {...this.state.incident, status: event.target.value}, ...this.state });
+        this.setState({
+            ...this.state,
+            incident: {
+                ...this.state.incident,
+                status: event.target.value
+            }
+        });
     }
     handlePriorityChange(event) {
-        this.setState({ incident: {...this.state.incident, priority: event.target.value}, ...this.state });
+        this.setState({
+            ...this.state,
+            incident: {
+                ...this.state.incident,
+                priority: event.target.value
+            }
+        });
     }
     handleAttachmentChange(event) {
         if (event.target.file && event.target.files[0]) {
             this.convertFileToBase64(event.target.files[0]).then(base64 => {
-                this.setState({ incident: {...this.state.incident, attachments: base64}, ...this.state });
+                this.setState({
+                    ...this.state,
+                    incident: {
+                        ...this.state.incident,
+                        attachments: base64
+                    }
+                });
             });
         }
     }
@@ -108,22 +138,6 @@ class TeamsWorkOrderForm extends Component {
             }
         });
     }
-
-//    async handleTeamsAttachmentChange() {
-//         let image = await microsoftTeams.media.captureImage().
-//         this.setState({ ...this.state, isTeams: isInsideTeams});
-//     }
-
-//         microsoftTeams.captureImage((error, files) => {
-//             if (error) {
-//                 console.log(error);
-//             } else {
-//                 this.convertFileToBase64(files[0]).then(base64 => {
-//                     this.setState({ incident: {...this.state.incident, attachments: base64}, ...this.state });
-//                 });
-//             }
-//         });
-//     }
 
     render() {
         return (

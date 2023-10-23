@@ -17,7 +17,7 @@ class TeamsUserHome extends Component {
     }
     render() {
         return (
-                (this.state.punchInDate == null) ? this.getInitalView() : this.getPunchedInView()
+            (this.state.punchInDate == null) ? this.getInitalView() : this.getPunchedInView()
         );
     }
 

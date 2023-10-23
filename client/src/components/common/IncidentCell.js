@@ -12,8 +12,8 @@ class IncidentCell extends Component {
                 <div className="work-order-cell__subtitle">{description}</div>
                 </div>
                 <div className="work-order-cell__actions">
-                    <Button className="edit" icon={FiEdit} onClick={this.props.onEdit(id)}>Edit</Button>
-                    <Button className="delete"icon={FiDelete} onClick={this.props.onDelete(id)}>Delete</Button>
+                    {/* <Button className="edit" icon={FiEdit} onClick={this.props.onEdit(id)}>Edit</Button> */}
+                    {/* <Button className="delete"icon={FiDelete} onClick={this.props.onDeleteRecord(id)}>Delete</Button> */}
                 </div>
             </div>
         );

@@ -17,7 +17,7 @@ class Main extends React.Component {
     }
 
     render() {
-        const isInsideTeams = this.inTeams();
+        const isInsideTeams = this.props.inTeams;
         let component;
 
         if (isInsideTeams) {

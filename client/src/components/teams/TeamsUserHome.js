@@ -3,6 +3,7 @@ import AttendanceBarPanel from '../common/AttendanceBarPanel';
 import PunchInPanel from '../common/PunchInPanel';
 import WorkOrderList from '../common/WorkOrderList';
 import TaskBar from '../common/TaskBar';
+import Button from '../common/Button';
 
 class TeamsUserHome extends Component {
 
@@ -18,6 +19,7 @@ class TeamsUserHome extends Component {
             },
             punchInDate: null,
             lastActivtyDate: null,
+            displayingForm: false,
         };
     }
     render() {
@@ -28,6 +30,11 @@ class TeamsUserHome extends Component {
 
     // UI Utils
     getPunchedInView() {
+        if (this.state.displayingForm) {
+            return (
+                <Button onAddClick={this.handleFormDismiss.bind(this)} text="DUMMY FORM"/>
+            );
+        }
         return (
             <div>
                 <AttendanceBarPanel punchInDate={this.state.punchInDate} lastActivtyDate={this.state.lastActivtyDate} onBreak={this.handleTaskBarAction.bind(this)} onPunch={this.handlePunchIn.bind(this)}>  </AttendanceBarPanel>
@@ -46,6 +53,15 @@ class TeamsUserHome extends Component {
         );
     }
 
+    // Forms
+
+    handleFormDisplay() {
+        this.setState({displayingForm: true, ...this.state});
+    }
+
+    handleFormDismiss() {
+        this.setState({displayingForm: false, ...this.state});
+    }
     // Button Actions
     handlePunchIn(event) {
         console.log(event.target.id);
@@ -58,11 +74,11 @@ class TeamsUserHome extends Component {
     }
 
     handleTaskBarAction(isBreakOn) {
-        this.setState({lastActivtyDate: new Date(), punchInDate: this.state.punchInDate});
+        this.setState({lastActivtyDate: new Date(), ...this.state});
     }
 
     handleAdd(event ) {
-alert("Add");
+        this.setState({displayingForm: true, ...this.state});
     }
 }
 

@@ -8,15 +8,10 @@ class TaskBar extends Component {
         return (
             <div className='card taskbar tasks'>
                 <DateTimePanel />
-                <Button id="btn-add-report" text="Report" icon={BsPlusLg} onClick={ this.props.onClick}></Button>
-                <Button id="btn-add-supplier" text="Supplier" icon={BsPlusLg} onClick={ this.props.onClick}></Button>
-                <Button className="edit" text="Order" icon={BsPlusLg}>Edit</Button>
+                <Button id="btn-add-report" text="Report Incident" icon={BsPlusLg} onClick={ this.props.onClick}/>
+                {/* <Button id="btn-add-supplier" text="Supplier" icon={BsPlusLg} onClick={ this.props.onClick}/> */}
             </div>
         );
-    }
-
-    handleButtonClick(event) {
-        this.props.onClick(event)
     }
 }
 

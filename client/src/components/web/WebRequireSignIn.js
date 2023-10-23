@@ -48,10 +48,10 @@ class WebRequireSignIn extends Component {
 
     render() {
         return (
-            <div className='login-panel'>
+            <div className='login-box'>
             <form onSubmit={this.handleSubmit}>
                 <h1>Login</h1>
-                <div>
+                <div className='form-element'>
                     <label htmlFor="username">Username:</label>
                     <input
                         type="text"
@@ -64,7 +64,7 @@ class WebRequireSignIn extends Component {
                         <div className="error">{this.state.errors.username}</div>
                     )}
                 </div>
-                <div>
+                <div className='form-element'>
                     <label htmlFor="password">Password:</label>
                     <input
                         type="password"

@@ -22,8 +22,8 @@ class AttendanceBarPanel extends Component {
     render() {
         return (
             <div className='taskbar attendancepanel'>
-                <h3>{this.state.isBreakOn? "On Break" : "Active"}</h3>
-                <TimeTrackerPanel title={this.state.isBreakOn ? "Paused Since" : "Active Since"} startDate={this.props.lastActivtyDate} />
+                {/* <h3>{this.state.isBreakOn? "On Break" : "Active"}</h3> */}
+                <TimeTrackerPanel title={this.state.isBreakOn ? "Paused" : "Active"} startDate={this.props.lastActivtyDate} />
                 <TimeTrackerPanel title="Total" startDate={this.props.punchInDate} />
                 <Button className={this.getButtonClass()} id="btn-pause" icon={this.state.isBreakOn ? BsPlayFill : BsFillPauseFill} onClick={this.handleButtonClick.bind(this)}></Button>
                 <Button className="card" id="btn-punch-out" icon={BiSolidLogOutCircle} onClick={this.handleButtonClick.bind(this)}></Button>

@@ -3,6 +3,8 @@ import AttendanceBarPanel from '../common/AttendanceBarPanel';
 import PunchInPanel from '../common/PunchInPanel';
 import WorkOrderList from '../common/WorkOrderList';
 import TaskBar from   '../common/TaskBar';
+import Button from '../common/Button';  
+import TeamsWorkOrderForm from '../teams/TeamsWorkOrderForm';
 
 class WebUserHome extends Component {
     constructor(props) {
@@ -10,6 +12,7 @@ class WebUserHome extends Component {
         this.state = {
             punchInDate: null,
             lastActivtyDate: null,
+            displayingForm: false,
         };
     }
     
@@ -19,9 +22,17 @@ class WebUserHome extends Component {
         );
     }
 
-
     // UI Utils
     getPunchedInView() {
+        if (this.state.displayingForm) {
+            return (
+               <div>
+                 <Button className="card" onClick={this.handleFormDismiss.bind(this)} text="DUMMY FORM"/>
+                <TeamsWorkOrderForm onClose={this.handleFormDismiss.bind(this)}/>
+                </div>
+            );
+        }
+
         let date = new Date('October 22, 2023 11:00:00');
         return (
             <div>
@@ -37,10 +48,18 @@ class WebUserHome extends Component {
             <div>
                  <PunchInPanel onClick={this.handlePunchIn.bind(this)}/>
             </div>
-
         );
     }
 
+     // Forms
+
+     handleFormDisplay() {
+        this.setState({displayingForm: true, ...this.state});
+    }
+
+    handleFormDismiss() {
+        this.setState({displayingForm: false});
+    }
     // Button Actions
     handlePunchIn(event) {
         console.log(event.target.id);
@@ -55,8 +74,8 @@ class WebUserHome extends Component {
         this.setState({lastActivtyDate: new Date()});
     }
 
-    handleAdd(event ) {
-        alert("Add Work Order");
+    handleAdd(event) {
+        this.setState({ displayingForm: true });
     }
 
 }

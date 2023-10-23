@@ -31,6 +31,9 @@ class WorkOrderList extends Component {
 
         return (
             <div>
+                <br/>
+                <label>Work Orders</label>
+                <br/>
                 {listItems}
             </div>
         );

@@ -27,9 +27,9 @@ class Main extends React.Component {
         }
 
         return (
-            <body  className="main-body">
+            <div className="main-body">
                 {component}
-            </body>
+            </div>
         )
     }
 

@@ -269,21 +269,35 @@ Button.delete {
 }
 
 
-.form-element {
+.form-button-wrapper {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
-.form-element > * {
-  height: 34px;;
-  width: 200px;
-}
-
-form Button{
+.form-button-wrapper Button {
   border: none;
   cursor: pointer;
   border-radius: 3px;
-  padding: 10px 10px 10px 15px;
-  aspect-ratio: 1;
+  margin: 10px;
+  aspect-ratio: 1.7;
+  height: 34px;
+}
+
+Button.submit {
+  color: var(--action-contstructive-label-color);
+  background-color: var(--action-contstructive-color);
+}
+
+
+.error-header {
+  display: block;
+  font-size: medium;
+  color: var(--action-destructive-color);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  justify-content: start;
+
 }

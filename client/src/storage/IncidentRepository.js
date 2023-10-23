@@ -11,11 +11,11 @@ class IncidentRepository {
         this.db.createObjectStore([this.tableName, this.processedRecords]);
     }
 
-    async syncData() {
-        await this.db.createObjectStore([this.tableName]);
-        const records = await this.db.getAllValue(this.tableName);
-        records.forEach((rec) => this.sendToServer(rec, this.db));
-    }
+    // async syncData() {
+    //     await this.db.createObjectStore([this.tableName]);
+    //     const records = await this.db.getAllValue(this.tableName);
+    //     records.forEach((rec) => this.sendToServer(rec, this.db));
+    // }
 
     async getPendingRecordsCount() {
         await this.db.createObjectStore([this.tableName]);
@@ -46,20 +46,20 @@ class IncidentRepository {
         return keys.length;
     }
 
-    async sendToServer(incidentRecord, db) {
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        const raw = JSON.stringify(incidentRecord, ['name', 'email', 'phone', 'birthday']);
-        return fetch(this.formPostUrl, {method: 'post', headers: myHeaders, body: raw, redirect: 'follow'})
-          .then(response => response.text())
-          .then(result => {
-            console.log("POST success!");
-            this.addProcessedRecord({userId: JSON.parse(result).id});
-            db.deleteValue('userform', incidentRecord.id);
-            this.channel.postMessage({synced: incidentRecord.id});
-          })
-          .catch(error => console.log('error', error));
-    }
+    // async sendToServer(incidentRecord, db) {
+    //     const myHeaders = new Headers();
+    //     myHeaders.append("Content-Type", "application/json");
+    //     const raw = JSON.stringify(incidentRecord, ['name', 'email', 'phone', 'birthday']);
+    //     return fetch(this.formPostUrl, {method: 'post', headers: myHeaders, body: raw, redirect: 'follow'})
+    //       .then(response => response.text())
+    //       .then(result => {
+    //         console.log("POST success!");
+    //         this.addProcessedRecord({userId: JSON.parse(result).id});
+    //         db.deleteValue('userform', incidentRecord.id);
+    //         this.channel.postMessage({synced: incidentRecord.id});
+    //       })
+    //       .catch(error => console.log('error', error));
+    // }
 
     async deleteRecord(id) {
         await this.db.createObjectStore([this.tableName]);

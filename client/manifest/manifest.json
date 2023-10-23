@@ -6,9 +6,9 @@
   "packageName": "com.gauravkeshre.sample.rightshift",
   "developer": {
     "name": "Gaurav Keshre",
-    "websiteUrl": "https://d563-2404-f801-8028-3-e597-3d7a-61f2-a6a9.ngrok-free.app/",
-    "privacyUrl": "https://d563-2404-f801-8028-3-e597-3d7a-61f2-a6a9.ngrok-free.app/privacy.html",
-    "termsOfUseUrl": "https://d563-2404-f801-8028-3-e597-3d7a-61f2-a6a9.ngrok-free.app/termsofuse.html"
+    "websiteUrl": "https://tjt1wndn-3000.inc1.devtunnels.ms/",
+    "privacyUrl": "https://tjt1wndn-3000.inc1.devtunnels.ms/privacy.html",
+    "termsOfUseUrl": "https://tjt1wndn-3000.inc1.devtunnels.ms/termsofuse.html"
   },
   "icons": {
       "color": "icon240.png",
@@ -27,8 +27,8 @@
     {
       "entityId": "Index",
       "name": "Index",
-      "contentUrl": "https://d563-2404-f801-8028-3-e597-3d7a-61f2-a6a9.ngrok-free.app",
-      "websiteUrl": "https://d563-2404-f801-8028-3-e597-3d7a-61f2-a6a9.ngrok-free.app",
+      "contentUrl": "https://tjt1wndn-3000.inc1.devtunnels.ms",
+      "websiteUrl": "https://tjt1wndn-3000.inc1.devtunnels.ms",
       "scopes": [
         "personal"
       ]
@@ -40,10 +40,10 @@
       "messageTeamMembers"
   ],
   "validDomains": [
-      "d563-2404-f801-8028-3-e597-3d7a-61f2-a6a9.ngrok-free.app"
+      "tjt1wndn-3000.inc1.devtunnels.ms"
   ],
   "webApplicationInfo": {
       "id": "8530bcef-fd23-428f-aa09-2c7be548cfbc",
-      "resource": "api://d563-2404-f801-8028-3-e597-3d7a-61f2-a6a9.ngrok-free.app/8530bcef-fd23-428f-aa09-2c7be548cfbc"
+      "resource": "api://tjt1wndn-3000.inc1.devtunnels.ms/8530bcef-fd23-428f-aa09-2c7be548cfbc"
   }
 }

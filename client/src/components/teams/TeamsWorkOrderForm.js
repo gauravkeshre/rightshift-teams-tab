@@ -1,18 +1,37 @@
 import '../../style/Form.css';
 import React, { Component } from 'react';
 import Button from '../common/Button';
+import * as microsoftTeams from "@microsoft/teams-js";
+import { inTeams } from '../../Utility/TeamsUtils';
+import IncidentRepository from '../../storage/IncidentRepository';
+import { v4 as uuid } from "uuid";
 
 class TeamsWorkOrderForm extends Component {
+        
     constructor(props) {
         super(props);
+
+        microsoftTeams.initialize();
+        this.incidentRepository = new IncidentRepository();    
         this.state = {
-            id: null,
+            key: uuid(),
             title: '',
             description: '',
             status: '',
             attachments: '',
             Priority: '',
+            isTeams: false,
+
         };
+    }
+
+    async checkIfTeams() {
+        let isInsideTeams = await inTeams();
+        this.setState({ isTeams: isInsideTeams, ...this.state});
+    }
+
+    async componentWillMount() {
+        await this.checkIfTeams();
     }
 
     submitForm(event) {
@@ -22,9 +41,8 @@ class TeamsWorkOrderForm extends Component {
         let errors = {};
 
         if (Object.keys(errors).length === 0) {
-            // Submit the form
-            console.log('Submitting form:', this.state);
-            this.props.onClose(); // Call the callback function passed as a prop
+            this.incidentRepository.enqueueForSync(this.state);
+            this.props.onClose(); 
         } else {
             // Update the state with the errors
             this.setState({ errors });
@@ -61,10 +79,14 @@ class TeamsWorkOrderForm extends Component {
         }
     }
 
+    handleTeamsAttachmentChange(event) {
+
+    }
+
     render() {
         return (
             <div className="card form-wrapper">
-                <form onSubmit={this.handleSubmit}>
+                <form>
                 <label>
                     Title:
                     <input id="title" type="text" value={this.state.title} onChange={this.handleTitleChange.bind(this)} />
@@ -86,16 +108,33 @@ class TeamsWorkOrderForm extends Component {
                     <input id="pri" type="text" value={this.state.priority}  onChange={this.handlePriorityChange.bind(this)}/>
                 </label>
                 <br />
-                <label>
-                    Attachments:
-                    <input id="att" type="file" className="imagePicker" name="myImage" accept="image/png, image/gif, image/jpeg" onChange={this.handleAttachmentChange.bind(this)}/>
-                </label>
+                {/* {
+                    this.getAttachment()
+                } */}
                 <br />
-                <Button text="Close" onClick={this.props.onClose}/>
-                <Button text="Submit" onClick={this.submitForm.bind(this)}/>
+                <Button className="cancel" text="Close" onClick={this.props.onClose}/>
+                <Button className="submit" text="Submit" onClick={this.submitForm.bind(this)}/>
             </form>
             </div>
         );
+    }
+
+    getAttachment() {
+        if(this.state.isTeams) {
+            return (
+                <label>
+                    Team Attachment:
+                    <button id="attachment" onClick={this.handleTeamsAttachmentChange.bind(this)}>Upload</button>
+                </label>
+            );
+        }else {
+            return (
+                <label>
+                    Web Attachment:
+                    <input id="att" type="file" className="imagePicker" name="myImage" accept="image/png, image/gif, image/jpeg" onChange={this.handleAttachmentChange.bind(this)}/>
+                </label>
+            );
+        }
     }
 }
 

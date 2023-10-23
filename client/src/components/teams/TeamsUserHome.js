@@ -4,22 +4,16 @@ import PunchInPanel from '../common/PunchInPanel';
 import WorkOrderList from '../common/WorkOrderList';
 import TaskBar from '../common/TaskBar';
 import Button from '../common/Button';
+import TeamsWorkOrderForm from '../teams/TeamsWorkOrderForm';
 
 class TeamsUserHome extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            error: null,
-            username: "NONE",
-            user: {
-                name: 'John Doe',
-                email: 'johndoe@example.com',
-                age: 30
-            },
             punchInDate: null,
             lastActivtyDate: null,
-            displayingForm: false,
+            displayingForm: false
         };
     }
     render() {
@@ -32,12 +26,12 @@ class TeamsUserHome extends Component {
     getPunchedInView() {
         if (this.state.displayingForm) {
             return (
-                <Button onAddClick={this.handleFormDismiss.bind(this)} text="DUMMY FORM"/>
+                <TeamsWorkOrderForm onClose={this.handleFormDismiss.bind(this)}/>
             );
         }
         return (
             <div>
-                <AttendanceBarPanel punchInDate={this.state.punchInDate} lastActivtyDate={this.state.lastActivtyDate} onBreak={this.handleTaskBarAction.bind(this)} onPunch={this.handlePunchIn.bind(this)}>  </AttendanceBarPanel>
+                {/* <AttendanceBarPanel punchInDate={this.state.punchInDate} lastActivtyDate={this.state.lastActivtyDate} onBreak={this.handleTaskBarAction.bind(this)} onPunch={this.handlePunchIn.bind(this)}>  </AttendanceBarPanel> */}
                 <TaskBar onClick={this.handleAdd.bind(this)}/>
                 <WorkOrderList onAddClick={this.handleAdd.bind(this)}/>
             </div>
@@ -49,18 +43,17 @@ class TeamsUserHome extends Component {
             <div>
                 <PunchInPanel onClick={this.handlePunchIn.bind(this)}/>
             </div>
-
         );
     }
 
     // Forms
 
     handleFormDisplay() {
-        this.setState({displayingForm: true, ...this.state});
+        this.setState({...this.state, displayingForm: true});
     }
 
     handleFormDismiss() {
-        this.setState({displayingForm: false, ...this.state});
+        this.setState({...this.state, displayingForm: false});
     }
     // Button Actions
     handlePunchIn(event) {
@@ -78,7 +71,7 @@ class TeamsUserHome extends Component {
     }
 
     handleAdd(event ) {
-        this.setState({displayingForm: true, ...this.state});
+        this.setState({...this.state, displayingForm: true});
     }
 }
 

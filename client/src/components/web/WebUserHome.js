@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AttendanceBarPanel from '../common/AttendanceBarPanel';
 import PunchInPanel from '../common/PunchInPanel';
-import WorkOrderList from '../common/WorkOrderList';
+import IncidentsListPanel from '../common/IncidentsListPanel';
 import TaskBar from   '../common/TaskBar';
 import Button from '../common/Button';  
 import TeamsWorkOrderForm from '../teams/TeamsWorkOrderForm';
@@ -33,12 +33,12 @@ class WebUserHome extends Component {
             );
         }
 
-        let date = new Date('October 22, 2023 11:00:00');
+        // let date = new Date('October 22, 2023 11:00:00');
         return (
             <div>
-                <AttendanceBarPanel punchInDate={date} lastActivtyDate={this.state.lastActivtyDate} onBreak={this.handleTaskBarAction.bind(this)} onPunch={this.handlePunchIn.bind(this)} >  </AttendanceBarPanel>
+                {/* <AttendanceBarPanel punchInDate={date} lastActivtyDate={this.state.lastActivtyDate} onBreak={this.handleTaskBarAction.bind(this)} onPunch={this.handlePunchIn.bind(this)} >  </AttendanceBarPanel> */}
                 <TaskBar  onClick={this.handleAdd.bind(this)} />
-                <WorkOrderList onAddClick={this.handleAdd.bind(this)}/>
+                <IncidentsListPanel onAddClick={this.handleAdd.bind(this)}/>
             </div>
         );
     }

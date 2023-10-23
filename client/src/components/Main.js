@@ -17,7 +17,7 @@ class Main extends React.Component {
     }
 
     render() {
-        const isInsideTeams = this.inTeams();
+        const isInsideTeams = this.props.inTeams;
         let component;
 
         if (isInsideTeams) {
@@ -27,9 +27,9 @@ class Main extends React.Component {
         }
 
         return (
-            <body  className="main-body">
+            <div className="main-body">
                 {component}
-            </body>
+            </div>
         )
     }
 

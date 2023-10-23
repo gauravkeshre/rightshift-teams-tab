@@ -1,34 +1,38 @@
 import React, { Component } from 'react';
-import AttendanceBarPanel from '../common/AttendanceBarPanel';
+// import AttendanceBarPanel from '../common/AttendanceBarPanel';
 import PunchInPanel from '../common/PunchInPanel';
+import IncidentsListPanel from '../common/IncidentsListPanel';
+import TaskBar from '../common/TaskBar';
+import TeamsWorkOrderForm from '../teams/TeamsWorkOrderForm';
 
 class TeamsUserHome extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            error: null,
-            username: "NONE",
-            user: {
-                name: 'John Doe',
-                email: 'johndoe@example.com',
-                age: 30
-            },
             punchInDate: null,
             lastActivtyDate: null,
+            displayingForm: false
         };
     }
     render() {
         return (
-                (this.state.punchInDate == null) ? this.getInitalView() : this.getPunchedInView()
+            (this.state.punchInDate == null) ? this.getInitalView() : this.getPunchedInView()
         );
     }
 
     // UI Utils
     getPunchedInView() {
+        if (this.state.displayingForm) {
+            return (
+                <TeamsWorkOrderForm onClose={this.handleFormDismiss.bind(this)}/>
+            );
+        }
         return (
             <div>
-                <AttendanceBarPanel punchInDate={this.state.punchInDate} lastActivtyDate={this.state.lastActivtyDate} onBreak={this.handleTaskBarAction.bind(this)} onPunch={this.handlePunchIn.bind(this)}>  </AttendanceBarPanel>
+                {/* <AttendanceBarPanel punchInDate={this.state.punchInDate} lastActivtyDate={this.state.lastActivtyDate} onBreak={this.handleTaskBarAction.bind(this)} onPunch={this.handlePunchIn.bind(this)}>  </AttendanceBarPanel> */}
+                <TaskBar onClick={this.handleAdd.bind(this)}/>
+                <IncidentsListPanel onAddClick={this.handleAdd.bind(this)}/>
             </div>
         );
     }
@@ -38,10 +42,18 @@ class TeamsUserHome extends Component {
             <div>
                 <PunchInPanel onClick={this.handlePunchIn.bind(this)}/>
             </div>
-
         );
     }
 
+    // Forms
+
+    handleFormDisplay() {
+        this.setState({...this.state, displayingForm: true});
+    }
+
+    handleFormDismiss() {
+        this.setState({...this.state, displayingForm: false});
+    }
     // Button Actions
     handlePunchIn(event) {
         console.log(event.target.id);
@@ -54,7 +66,11 @@ class TeamsUserHome extends Component {
     }
 
     handleTaskBarAction(isBreakOn) {
-        this.setState({lastActivtyDate: new Date(), punchInDate: this.state.punchInDate});
+        this.setState({lastActivtyDate: new Date(), ...this.state});
+    }
+
+    handleAdd(event ) {
+        this.setState({...this.state, displayingForm: true});
     }
 }
 

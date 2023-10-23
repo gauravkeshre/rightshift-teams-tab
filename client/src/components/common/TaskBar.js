@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
-import DatePanel from './DatePanel';
+import DateTimePanel from './DateTimePanel';
 import Button from './Button';
-import {BsFillFileEarmarkPlusFill} from 'react-icons/bs';
+import {BsPlusLg} from 'react-icons/bs';
 
 class TaskBar extends Component {
     render() {
         return (
-            <div className='card taskbar'>
-                <DatePanel />
-                <Button className="card" icon={BsFillFileEarmarkPlusFill} onClick={this.handleButtonClick.bind(this)}></Button>
+            <div className='card taskbar tasks'>
+                <DateTimePanel />
+                <Button id="btn-add-report" text="Report Incident" icon={BsPlusLg} onClick={ this.props.onClick}/>
+                {/* <Button id="btn-add-supplier" text="Supplier" icon={BsPlusLg} onClick={ this.props.onClick}/> */}
             </div>
         );
-    }
-
-    handleButtonClick(event) {
-
     }
 }
 

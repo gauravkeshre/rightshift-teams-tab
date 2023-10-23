@@ -45,5 +45,8 @@
   "webApplicationInfo": {
       "id": "<CLIENT_ID>",
       "resource": "api://<HOST_NAME>/<CLIENT_ID>"
-  }
+  },
+  "devicePermissions": [
+    "media"
+  ]
 }

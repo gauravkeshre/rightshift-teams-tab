@@ -18,13 +18,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   align-content: center;
-  height: 90px;
-  align-items: stretch;
-}
-
-.taskbar > * {
-  margin: 16px;
-  color: var(--card-content-color);
+  height: 70px;
   line-height: 0;
 }
 
@@ -68,16 +62,17 @@
   white-space: nowrap;
   overflow: visible;
   text-overflow: ellipsis;
-  line-height: 1.5;
+  line-height: 1;
   font-weight: 400;
-  padding: 6px 6px 6px 10px;
+  padding: 3px 3px 3px 6px;
   margin: 10px;
-  width: 120px;
+  width: 65px;
+  height: 40px;
 }
 
 .time-tracker  .time {
   font-weight: 600;
-  font-size: x-large;
+  font-size: medium;
 }
 
 
@@ -145,11 +140,15 @@
   display: flex;
   align-items: stretch;
   border-radius: 0px;
+  justify-content: center;
 }
 
 #btn-punch-in {
   color: var(--action-green-label-color);
   background-color: var(--action-green-color);
+  height: 100px;
+  width: 100%;
+
 }
 
 #btn-punch-out {
@@ -163,4 +162,142 @@
 
 .active-tracker {
   background-color: #baff8538;
+}
+
+.empty-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: var(  --empty-view-bg-color);
+  color: var( --empty-view-color);
+}
+
+.empty-view .react-icons {
+  font-size: 100px;
+  
+}
+
+/* Work Orders */
+
+.work-orders {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  padding: 10px;
+  text-align: center;
+  background-color: var(--action-secondary-color);
+}
+
+.work-order-cell {
+  border-radius: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.04);
+}
+
+/* WORK ORDER CELL */
+
+.work-order-cell__details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.work-order-cell__title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.work-order-cell__subtitle {
+  font-size: 14px;
+  color: #666;
+}
+
+.work-order-cell__actions {
+  display: flex;
+  gap: 20px;
+}
+
+.work-order-cell__actions Button{
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 10px 10px 10px 15px;
+  aspect-ratio: 1;
+}
+
+Button.edit {
+  color: var(--action-contstructive-label-color);
+  background-color: var(--action-contstructive-color);
+}
+
+Button.delete {
+  color: var(--action-destructive-label-color);
+  background-color: var(--action-destructive-color);
+}
+
+.tasks {
+  background-color: bisque;
+  height: 70px;
+}
+
+.tasks Button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+  cursor: pointer;
+  border: none;
+  border-radius: 20%;
+  background-color: var(--primary-dark-color);
+  color: var(  --primary-light-color);
+  line-height: 1.5;
+  font-size: x-small;
+  width: 54px;
+}
+
+
+.form-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.form-button-wrapper Button {
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  margin: 10px;
+  aspect-ratio: 1.7;
+  height: 34px;
+}
+
+Button.submit {
+  color: var(--action-contstructive-label-color);
+  background-color: var(--action-contstructive-color);
+}
+
+
+.error-header {
+  display: block;
+  font-size: medium;
+  color: var(--action-destructive-color);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  justify-content: start;
+
 }

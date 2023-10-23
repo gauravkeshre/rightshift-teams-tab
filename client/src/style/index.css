@@ -15,6 +15,10 @@
   --action-secondary-color: #E7EEF6;
 
   --panel-color: #57BEDC;
+
+  --empty-view-color: #b4b4b4;
+  --empty-view-bg-color: #e0e0e0
+
 }
 
 body {

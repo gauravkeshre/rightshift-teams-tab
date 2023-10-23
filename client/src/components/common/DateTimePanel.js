@@ -1,6 +1,6 @@
 import React from 'react';
 
-class DatePanel extends React.Component {
+class DateTimePanel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -35,13 +35,21 @@ class DatePanel extends React.Component {
 
         const formattedTime = this.state.date.toLocaleTimeString();
         return (
-            <div className='card datepanel'>
+            <div className={this.getDivClassName()}>
                 <div className="day">{formattedDate}</div>
                 <div className="date">{formattedDate2}</div>
-                <div className="time">{formattedTime}</div>
+                {this.props.showTime ? <div className="time">{formattedTime}</div> : null}
             </div>
         );
     }
+
+    getDivClassName() {
+        if (this.props.showAsCard) {
+            return "card datepanel";
+        } else {
+            return "datepanel";
+        }
+    }
 }
 
-export default DatePanel;
+export default DateTimePanel;
